@@ -1,3 +1,0 @@
-databaseChangeLog:
-  - include:
-      file: db/changelog/2021-07-03_23-46_changelog.xml
