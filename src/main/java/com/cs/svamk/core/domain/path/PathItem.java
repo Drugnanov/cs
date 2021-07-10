@@ -1,6 +1,5 @@
 package com.cs.svamk.core.domain.path;
 
-import com.cs.svamk.core.domain.base.BaseEntity;
 import com.cs.svamk.core.domain.base.BaseId;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -9,13 +8,14 @@ import lombok.experimental.SuperBuilder;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
 import java.util.List;
 
 @Data
@@ -23,22 +23,27 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @SuperBuilder
 @Entity
-@Table(name = "PATHS")
-@SequenceGenerator(name = "SEQ_GEN", sequenceName = "PATH_SEQ", allocationSize = 1)
-public class Path extends BaseEntity {
+@Table(name = "PATH_ITEMS")
+@SequenceGenerator(name = "SEQ_GEN", sequenceName = "PATH_ITEM_SEQ", allocationSize = 1)
+public class PathItem extends BaseId {
 
     @Column
-    @Temporal(TemporalType.TIMESTAMP)
-    protected Date dueDate;
+    protected Integer weight;
+
+    //ToDO change to more suitable progress information
+    @NotNull
+    @Column(nullable = false)
+    private String progress;
 
     @NotNull
     @Column(nullable = false)
-    private PathState state;
+    protected boolean completed = false;
 
-    @Column
-    @Temporal(TemporalType.TIMESTAMP)
-    protected Date oneToOneDate;
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "PATH_ID", nullable = false)
+    private Path path;
 
-    @OneToMany(mappedBy = "path")
-    protected List<PathItem> items;
+    @OneToMany(mappedBy = "pathItem")
+    private List<PathItemEvaluation> evaluations;
 }

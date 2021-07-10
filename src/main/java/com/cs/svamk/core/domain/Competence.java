@@ -23,4 +23,7 @@ public class Competence extends BaseEntity {
 
     @OneToMany(mappedBy = "competence")
     protected List<EmployeeCompetence> employeeCompetences;
+
+    @OneToMany(mappedBy = "competence")
+    protected List<Activity> activities;
 }
