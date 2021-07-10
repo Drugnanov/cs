@@ -7,15 +7,20 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.Entity;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.SequenceGenerator;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @SuperBuilder
 @Entity
-@Table(name = "COMPETENCES")
-@SequenceGenerator(name = "SEQ_GEN", sequenceName = "COMPETENCE_SEQ", allocationSize = 1)
-public class Competence extends BaseEntity {
+@Table(name = "AREAS")
+@SequenceGenerator(name = "SEQ_GEN", sequenceName = "AREA_SEQ", allocationSize = 1)
+public class Area extends BaseEntity {
+
+    @OneToMany(mappedBy = "area")
+    protected List<Chapter> chapters;
 }

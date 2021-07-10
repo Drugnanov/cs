@@ -1,5 +1,5 @@
-insert into competence values(1, 'DEVJAVA', 'Java development');
-insert into competence values(2, 'DEVC', 'C development');
-insert into competence values(3, 'DEVPY', 'Python development');
-insert into competence values(4, 'TESTAU', 'Automation testing');
-insert into competence values(5, 'DBOR', 'Oracle specialist');
+insert into competences (id, title, description) values(1, 'Java development', null);
+insert into competences (id, title, description) values(2, 'C development', null);
+insert into competences (id, title, description) values(3, 'Python development', null);
+insert into competences (id, title, description) values(4, 'Automation testing', null);
+insert into competences (id, title, description) values(5, 'Oracle specialist', null);

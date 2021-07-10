@@ -1,1 +1,1 @@
-delete from competence;
+delete from competences;

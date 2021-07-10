@@ -2,7 +2,6 @@ package com.cs.svamk.core.service;
 
 import com.cs.svamk.core.domain.Competence;
 import com.cs.svamk.core.repository.CompetenceRepository;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,8 +30,8 @@ public class CompetenceServiceTest {
     @Test
     public void findAllCompetences() {
         List<Competence> competences = new ArrayList<>();
-        competences.add(new Competence(1L, "CODE", "Coding"));
-        competences.add(new Competence(2L, "PO", "Managing"));
+        competences.add(Competence.builder().id(1L).title("Coding").description("desc1").build());
+        competences.add(Competence.builder().id(2L).title("Managing").description("desc2").build());
         Mockito.when(cr.findAll()).thenReturn(competences);
 
         List<Competence> competencesReturned = cs.getAllCompetences();
@@ -40,4 +39,5 @@ public class CompetenceServiceTest {
         assertEquals(2, competencesReturned.size());
         assertEquals(competences, competencesReturned);
     }
+
 }
