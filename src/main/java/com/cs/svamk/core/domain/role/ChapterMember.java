@@ -1,6 +1,6 @@
-package com.cs.svamk.core.domain;
+package com.cs.svamk.core.domain.role;
 
-import com.cs.svamk.core.domain.base.BaseEntity;
+import com.cs.svamk.core.domain.agile.Chapter;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -8,7 +8,7 @@ import lombok.experimental.SuperBuilder;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -18,12 +18,12 @@ import javax.validation.constraints.NotNull;
 @EqualsAndHashCode(callSuper = true)
 @SuperBuilder
 @Entity
-@Table(name = "SQUADS")
-@SequenceGenerator(name = "SEQ_GEN", sequenceName = "SQUAD_SEQ", allocationSize = 1)
-public class Squad extends BaseEntity {
+@Table(name = "ROLE_CHAPTER_MEMBERS")
+@SequenceGenerator(name = "SEQ_GEN", sequenceName = "ROLE_SEQ", allocationSize = 1)
+public class ChapterMember extends Role {
 
     @NotNull
-    @ManyToOne
-    @JoinColumn(name = "TRIBE_ID")
-    protected Tribe tribe;
+    @OneToOne
+    @JoinColumn(name = "CHAPTER_ID", nullable = false)
+    protected Chapter chapter;
 }

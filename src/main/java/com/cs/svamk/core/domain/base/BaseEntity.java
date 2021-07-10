@@ -16,11 +16,10 @@ import javax.validation.constraints.NotNull;
 @EqualsAndHashCode(callSuper = true)
 @SuperBuilder
 @MappedSuperclass
-@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class BaseEntity extends BaseId {
 
-    @Column(nullable = false)
     @NotNull
+    @Column(nullable = false)
     protected String title;
 
     @Column

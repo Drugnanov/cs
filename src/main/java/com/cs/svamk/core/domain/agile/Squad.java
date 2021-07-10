@@ -1,4 +1,4 @@
-package com.cs.svamk.core.domain;
+package com.cs.svamk.core.domain.agile;
 
 import com.cs.svamk.core.domain.base.BaseEntity;
 import lombok.Data;
@@ -18,12 +18,12 @@ import javax.validation.constraints.NotNull;
 @EqualsAndHashCode(callSuper = true)
 @SuperBuilder
 @Entity
-@Table(name = "CHAPTERS")
-@SequenceGenerator(name = "SEQ_GEN", sequenceName = "CHAPTER_SEQ", allocationSize = 1)
-public class Chapter extends BaseEntity {
+@Table(name = "SQUADS")
+@SequenceGenerator(name = "SEQ_GEN", sequenceName = "SQUAD_SEQ", allocationSize = 1)
+public class Squad extends BaseEntity {
 
     @NotNull
     @ManyToOne
-    @JoinColumn(name = "AREA_ID")
-    protected Area area;
+    @JoinColumn(name = "TRIBE_ID")
+    protected Tribe tribe;
 }
