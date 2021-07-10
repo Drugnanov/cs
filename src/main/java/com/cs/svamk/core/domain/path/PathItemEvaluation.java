@@ -39,5 +39,5 @@ public class PathItemEvaluation extends BaseId {
     @NotNull
     @ManyToOne
     @JoinColumn(name = "ROLE_ID", nullable = false)
-    private Role role;
+    private Role user;
 }
