@@ -16,6 +16,7 @@ public class CompetenceService {
     }
 
     public List<Competence> getAllCompetences() {
-        return competenceRepository.findAll();
+        List<Competence> competences = competenceRepository.findAll();
+        return competences;
     }
 }

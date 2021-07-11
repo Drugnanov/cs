@@ -60,10 +60,10 @@ values(3, 1, null, 2, 1);
 insert into path_item_evaluations (id, rating, description, path_item_id, role_id)
 values(4, 2, null, 2, 2);
 
-insert into comment_notes (id, text, created)
-values(1, 'note A', '2021-09-17 18:47:52.69');
-insert into comment_notes (id, text, created)
-values(2, 'note B', '2021-09-17 18:47:52.69');
-
 insert into comments (id, text, created, entity_type, entity_id, role_id)
 values(1, 'comment', '2021-09-17 18:47:52.69', 1, 1, 2);
+
+insert into comment_notes (id, text, created, comment_id)
+values(1, 'note A', '2021-09-17 18:47:52.69', 1);
+insert into comment_notes (id, text, created, comment_id)
+values(2, 'note B', '2021-09-17 18:47:52.69', 1);
