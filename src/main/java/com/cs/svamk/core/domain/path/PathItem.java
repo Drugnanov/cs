@@ -1,6 +1,9 @@
 package com.cs.svamk.core.domain.path;
 
+import com.cs.svamk.core.domain.Activity;
+import com.cs.svamk.core.domain.EmployeeCompetence;
 import com.cs.svamk.core.domain.base.BaseId;
+import com.cs.svamk.core.domain.role.ChapterMember;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -43,6 +46,15 @@ public class PathItem extends BaseId {
     @ManyToOne
     @JoinColumn(name = "PATH_ID", nullable = false)
     private Path path;
+
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "ACTIVITY_ID", nullable = false)
+    private Activity activity;
+
+    @ManyToOne
+    @JoinColumn(name = "EMPLOYEE_COMPETENCE_ID")
+    private EmployeeCompetence employeeCompetence;
 
     @OneToMany(mappedBy = "pathItem")
     private List<PathItemEvaluation> evaluations;

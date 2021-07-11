@@ -31,7 +31,7 @@ public class EmployeeCompetence extends BaseId {
 
     @NotNull
     @Column(nullable = false)
-    private CompetenceLevel level;
+    private CompetenceLevel competenceLevel;
 
     @NotNull
     @Column(nullable = false)

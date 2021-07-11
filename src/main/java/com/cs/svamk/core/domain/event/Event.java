@@ -1,5 +1,6 @@
 package com.cs.svamk.core.domain.event;
 
+import com.cs.svamk.core.domain.Employee;
 import com.cs.svamk.core.domain.base.BaseId;
 import com.cs.svamk.core.domain.role.Role;
 import lombok.Data;
@@ -72,4 +73,10 @@ public class Event extends BaseId {
     @ManyToOne
     @JoinColumn(name = "CHANGE_ROLE_ID")
     protected Role changeRole;
+
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "EMPLOYEE_ID", nullable = false)
+    protected Employee employee;
+
 }

@@ -2,6 +2,7 @@ package com.cs.svamk.core.domain;
 
 import com.cs.svamk.core.domain.base.BaseEntity;
 import com.cs.svamk.core.domain.base.BaseId;
+import com.cs.svamk.core.domain.event.Event;
 import com.cs.svamk.core.domain.role.ChapterMember;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -42,4 +43,8 @@ public class Employee extends BaseId {
 
     @OneToMany(mappedBy = "employee")
     protected List<EmployeeCompetence> employeeCompetences;
+
+    @OneToMany(mappedBy = "employee")
+    protected List<Event> events;
+
 }

@@ -2,6 +2,7 @@ package com.cs.svamk.core.domain.path;
 
 import com.cs.svamk.core.domain.base.BaseEntity;
 import com.cs.svamk.core.domain.base.BaseId;
+import com.cs.svamk.core.domain.role.ChapterMember;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -9,6 +10,8 @@ import lombok.experimental.SuperBuilder;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -38,6 +41,11 @@ public class Path extends BaseEntity {
     @Column
     @Temporal(TemporalType.TIMESTAMP)
     protected Date oneToOneDate;
+
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "CHAPTER_MEMBER_ID", nullable = false)
+    private ChapterMember chapterMember;
 
     @OneToMany(mappedBy = "path")
     protected List<PathItem> items;
